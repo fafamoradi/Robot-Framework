@@ -5,7 +5,10 @@ Resource    Variables.robot
 *** keywords ***
 
 Start TestCase
-    Open Browser  git  ${URL}    ${BROWSER}    options=add_argument("--ignore-certificate-errors")
+    Set Selenium Speed    ${SPEED}
+    Set Selenium Timeout    ${TIMEOUT}
+    Set Selenium Implicit Wait    ${WAIT}
+    Open Browser    ${URL}    ${BROWSER}    options=add_argument("--ignore-certificate-errors")
 
 
 Finish TestCase 

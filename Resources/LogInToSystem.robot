@@ -14,9 +14,6 @@ ${VerifiedName}    fatemeh moradi
 
 *** keywords ***
 Open Digikala Site
-    Set Selenium Speed    ${SPEED}
-    Set Selenium Timeout    ${TIMEOUT}
-    Set Selenium Implicit Wait    ${WAIT}
     CommonFunctionality.Start TestCase
 
 Go TO LogIn Page
