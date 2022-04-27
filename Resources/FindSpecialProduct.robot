@@ -5,32 +5,6 @@ Resource    ../Resources/CommonFunctionality.robot
 
 
 
-#*** test cases ***
-#Just Test
-#    Set Selenium Timeout    60s
-#    Set Selenium Implicit Wait    20s
-#    Wait Until Page Contains Element    //*[@id="base_layout_desktop_fixed_header"]/header/nav/div[1]/div[1]/div[1]/div/span
-#    Click Element    xpath=//*[@id="base_layout_desktop_fixed_header"]/header/nav/div[1]/div[1]/div[1]/div/span
-#
-#    Wait Until Page Contains Element    //header/nav[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[8]/a[1]/p[1]
-#    Click Element    xpath=//header/nav[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[8]/a[1]/p[1]
-##    Execute Javascript    window.scrollTo(0,900)
-##    Run Keyword And Ignore Error    Scroll Element Into View    //*[@id="__next"]/div[1]/div[3]/div[3]/div[1]/div[3]/div[2]/span[2]/a/p
-#
-#    Wait Until Page Contains Element    //*[@id="__next"]/div[1]/div[3]/div[3]/div[1]/div[3]/div[2]/span[2]/a/p
-#    Click Element    xpath=//*[@id="__next"]/div[1]/div[3]/div[3]/div[1]/div[3]/div[2]/span[2]/a/p
-##
-##    Wait Until Page Contains Element    //div[contains(text(),'مجلات')]
-##    Click Element    xpath=//div[contains(text(),'مجلات')]
-##    Wait Until Page Contains Element    //div[contains(text(),'مجلات داخلی')]
-##    Click Element    xpath=//div[contains(text(),'مجلات داخلی')]
-##
-##    Run Keyword And Ignore Error    Scroll Element Into View    //div[contains(text(),'سال انتشار')]
-##    Click Element    xpath=//div[contains(text(),'نوع جلد')]
-##
-##    Select Checkbox    xpath=//div[contains(text(),'کاغذی')]
-
-
 
 
 *** keywords ***
@@ -39,17 +13,43 @@ Open Category Menu
     Click Element    xpath=//*[@id="base_layout_desktop_fixed_header"]/header/nav/div[1]/div[1]/div[1]/div/span
 
 Select Category
+    [Arguments]    ${type_of_magazine}
     Wait Until Page Contains Element    //header/nav[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[8]/a[1]/p[1]
-    Click Element    xpath=//header/nav[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[8]/a[1]/p[1]
-
-Scroll
-#    execute javascript    window.scrollTo(0,1000)
-    Run Keyword And Ignore Error    scroll element into view    //body/div[@id='__next']/div[1]/div[3]/div[3]/div[1]/div[2]/div[2]/span[7]/a[1]/p[1]
+    Wait Until Keyword Succeeds    3x   10s    Click Element    xpath=//header/nav[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[8]/a[1]/p[1]
 
 
+    Set Selenium Implicit Wait    30s
+    Run Keyword And Ignore Error    scroll element into view    //*[@id="__next"]/div[1]/div[3]/div[3]/div[1]/div[2]/div[2]/span[7]/a/p
+
+    Wait Until Page Contains Element    //p[contains(text(),'مجلات، نقشه و نشانگر کتاب')]
+    Wait Until Keyword Succeeds    5x   10s    Click Element    xpath=//p[contains(text(),'مجلات، نقشه و نشانگر کتاب')]
+
+    Wait Until Page Contains Element    //div[contains(text(),'مجلات')]
+    Wait Until Keyword Succeeds    5x   10s    Click Element    //div[contains(text(),'مجلات')]
 
 
+    Wait Until Page Contains Element    //div[contains(text(),'${typeOfMagazine}')]
+    Click Element    xpath=//div[contains(text(),'${typeOfMagazine}')]
 
+    Run Keyword And Ignore Error    Scroll Element Into View    //div[contains(text(),'سال انتشار')]
+    Wait Until Keyword Succeeds    5x   10s    Click Element    xpath=//div[contains(text(),'نوع جلد')]
+    Run Keyword And Ignore Error    Scroll Element Into View    //div[contains(text(),'سال انتشار')]
 
+    Wait Until Keyword Succeeds    5x   10s    Click Element    xpath=//div[contains(text(),'کاغذی')]
 
+Select Product
+    [Arguments]    ${magazine_name}
+
+    Run Keyword And Ignore Error    Scroll Element Into View    partial link:${magazine_name}
+
+    Wait Until Keyword Succeeds    3x   10s    Click Element    partial link:${magazine_name}
+
+    @{WindowHandles}=    Get Window Handles
+    Switch Window    ${WindowHandles}[1]
+
+Verify Product
+    [Arguments]    ${verifie_word}
+    Wait Until Keyword Succeeds    1 min    1 sec    Element Should Be Visible    partial link:${verifie_word}
+#    Wait Until Page Contains Element     partial link:${verifie_word}
+    Page Should Contain Element    partial link:${verifie_word}
 
