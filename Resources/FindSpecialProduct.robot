@@ -31,25 +31,24 @@ Select Category
     Wait Until Page Contains Element    //div[contains(text(),'${typeOfMagazine}')]
     Click Element    xpath=//div[contains(text(),'${typeOfMagazine}')]
 
-    Run Keyword And Ignore Error    Scroll Element Into View    //div[contains(text(),'سال انتشار')]
+    Run Keyword And Ignore Error    Scroll Element Into View    xpath=//div[contains(text(),'نوع جلد')]
     Wait Until Keyword Succeeds    5x   10s    Click Element    xpath=//div[contains(text(),'نوع جلد')]
-    Run Keyword And Ignore Error    Scroll Element Into View    //div[contains(text(),'سال انتشار')]
+    Run Keyword And Ignore Error    Scroll Element Into View    //div[contains(text(),'کاغذی')]
 
     Wait Until Keyword Succeeds    5x   10s    Click Element    xpath=//div[contains(text(),'کاغذی')]
 
+
 Select Product
-    [Arguments]    ${magazine_name}
-
-    Run Keyword And Ignore Error    Scroll Element Into View    partial link:${magazine_name}
-
-    Wait Until Keyword Succeeds    3x   10s    Click Element    partial link:${magazine_name}
+    Wait Until Keyword Succeeds    3x   10s     Element Should Be Visible    //body/div[@id='__next']/div[1]/div[3]/div[3]/div[1]/div[1]/section[1]/div[2]/div[1]/div[1]/div[1]/a[1]
+    Wait Until Keyword Succeeds    3x   10s    Click Element    //body/div[@id='__next']/div[1]/div[3]/div[3]/div[1]/div[1]/section[1]/div[2]/div[1]/div[1]/div[1]/a[1]
 
     @{WindowHandles}=    Get Window Handles
     Switch Window    ${WindowHandles}[1]
 
+
 Verify Product
     [Arguments]    ${verifie_word}
-    Wait Until Keyword Succeeds    1 min    1 sec    Element Should Be Visible    partial link:${verifie_word}
-#    Wait Until Page Contains Element     partial link:${verifie_word}
-    Page Should Contain Element    partial link:${verifie_word}
+    Wait Until Keyword Succeeds    3x   10s     Element Should Be Visible    ${verifie_word}
+    Page Should Contain Element    ${verifie_word}
+
 

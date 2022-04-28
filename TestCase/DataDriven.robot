@@ -9,20 +9,24 @@ Suite Teardown    CommonFunctionality.Finish TestCase
 Test Template    Data Driven
 
 *** variables ***
-${persian_mag}    فارابی
-${english_mag}    BATMAN
+${verifie_word}    //p[text()='کاغذی']
 
-*** test cases ***                  TYPE OF MAG         MAG NAME         VERIFIE WORD
-Find Product In Persian Magazine    مجلات داخلی         ${persian_mag}   ${persian_mag}
-Find Product In English Magazine    مجلات خارجی         ${english_mag}   ${english_mag}
+
+
+*** test cases ***                  TYPE OF MAG            VERIFIE WORD
+Find Product In Persian Magazine    مجلات داخلی            ${verifie_word}
+Find Product In English Magazine    مجلات خارجی            ${verifie_word}
+
+
+
 
 *** keywords ***
 Data Driven
-    [Arguments]    ${type_of_magazine}    ${magazine_name}    ${verifie_word}
+    [Arguments]    ${type_of_magazine}    ${verifie_word}
 #    Set Selenium Implicit Wait    20s
     FindSpecialProduct.Open Category Menu
     FindSpecialProduct.Select Category    ${type_of_magazine}
-    FindSpecialProduct.Select Product    ${magazine_name}
+    FindSpecialProduct.Select Product
     FindSpecialProduct.Verify Product    ${verifie_word}
 
 

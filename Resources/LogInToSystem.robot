@@ -8,7 +8,7 @@ Resource    CommonFunctionality.robot
 
 
 *** variables ***
-${VerifiedName}    fatemeh moradi
+${VerifiedName}    zahra moradi
 
 
 
