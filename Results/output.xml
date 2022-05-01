@@ -1,0 +1,711 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 5.0 (Python 3.9.5 on win32)" generated="20220501 10:10:02.092" rpa="false" schemaversion="3">
+<suite id="s1" name="DataDriven" source="C:\Users\DELL\PycharmProjects\DigikalaTest\TestCase\DataDriven.robot">
+<kw name="Start TestCase" library="CommonFunctionality" type="SETUP">
+<kw name="Set Selenium Speed" library="SeleniumLibrary">
+<arg>${SPEED}</arg>
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<status status="PASS" starttime="20220501 10:10:02.478" endtime="20220501 10:10:02.479"/>
+</kw>
+<kw name="Set Selenium Timeout" library="SeleniumLibrary">
+<arg>${TIMEOUT}</arg>
+<doc>Sets the timeout that is used by various keywords.</doc>
+<status status="PASS" starttime="20220501 10:10:02.480" endtime="20220501 10:10:02.480"/>
+</kw>
+<kw name="Set Selenium Implicit Wait" library="SeleniumLibrary">
+<arg>${WAIT}</arg>
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<status status="PASS" starttime="20220501 10:10:02.480" endtime="20220501 10:10:02.481"/>
+</kw>
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<arg>options=add_argument("--ignore-certificate-errors")</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20220501 10:10:02.481" level="INFO">Opening browser 'chrome' to base url 'https://www.digikala.com/'.</msg>
+<status status="PASS" starttime="20220501 10:10:02.481" endtime="20220501 10:10:48.940"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20220501 10:10:48.941" endtime="20220501 10:10:49.504"/>
+</kw>
+<status status="PASS" starttime="20220501 10:10:02.478" endtime="20220501 10:10:49.504"/>
+</kw>
+<test id="s1-t1" name="Find Product In Persian Magazine" line="19">
+<kw name="Data Driven">
+<arg>مجلات داخلی</arg>
+<arg>${PersianWindowCode}</arg>
+<arg>${verifie_word}</arg>
+<kw name="Open Category Menu" library="FindSpecialProduct">
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>//*[@id="base_layout_desktop_fixed_header"]/header/nav/div[1]/div[1]/div[1]/div/span</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20220501 10:10:49.521" endtime="20220501 10:10:49.853"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath=//*[@id="base_layout_desktop_fixed_header"]/header/nav/div[1]/div[1]/div[1]/div/span</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220501 10:10:49.854" level="INFO">Clicking element 'xpath=//*[@id="base_layout_desktop_fixed_header"]/header/nav/div[1]/div[1]/div[1]/div/span'.</msg>
+<status status="PASS" starttime="20220501 10:10:49.854" endtime="20220501 10:10:50.382"/>
+</kw>
+<status status="PASS" starttime="20220501 10:10:49.519" endtime="20220501 10:10:50.383"/>
+</kw>
+<kw name="Select Category" library="FindSpecialProduct">
+<arg>${type_of_magazine}</arg>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>//header/nav[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[8]/a[1]/p[1]</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20220501 10:10:50.384" endtime="20220501 10:10:50.862"/>
+</kw>
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<arg>3x</arg>
+<arg>10s</arg>
+<arg>Click Element</arg>
+<arg>xpath=//header/nav[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[8]/a[1]/p[1]</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath=//header/nav[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[8]/a[1]/p[1]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220501 10:10:50.864" level="INFO">Clicking element 'xpath=//header/nav[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[8]/a[1]/p[1]'.</msg>
+<status status="PASS" starttime="20220501 10:10:50.863" endtime="20220501 10:10:51.862"/>
+</kw>
+<status status="PASS" starttime="20220501 10:10:50.862" endtime="20220501 10:10:51.862"/>
+</kw>
+<kw name="Set Selenium Implicit Wait" library="SeleniumLibrary">
+<arg>30s</arg>
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<status status="PASS" starttime="20220501 10:10:51.862" endtime="20220501 10:10:51.867"/>
+</kw>
+<kw name="Run Keyword And Ignore Error" library="BuiltIn">
+<arg>scroll element into view</arg>
+<arg>//*[@id="__next"]/div[1]/div[3]/div[3]/div[1]/div[2]/div[2]/span[7]/a/p</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<kw name="Scroll Element Into View" library="SeleniumLibrary">
+<arg>//*[@id="__next"]/div[1]/div[3]/div[3]/div[1]/div[2]/div[2]/span[7]/a/p</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<msg timestamp="20220501 10:11:22.239" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg timestamp="20220501 10:11:22.240" level="FAIL">Element with locator '//*[@id="__next"]/div[1]/div[3]/div[3]/div[1]/div[2]/div[2]/span[7]/a/p' not found.</msg>
+<status status="FAIL" starttime="20220501 10:10:51.868" endtime="20220501 10:11:22.246"/>
+</kw>
+<status status="PASS" starttime="20220501 10:10:51.868" endtime="20220501 10:11:22.246"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>//p[contains(text(),'مجلات، نقشه و نشانگر کتاب')]</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20220501 10:11:22.247" endtime="20220501 10:11:22.264"/>
+</kw>
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<arg>5x</arg>
+<arg>10s</arg>
+<arg>Click Element</arg>
+<arg>xpath=//p[contains(text(),'مجلات، نقشه و نشانگر کتاب')]</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath=//p[contains(text(),'مجلات، نقشه و نشانگر کتاب')]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220501 10:11:22.267" level="INFO">Clicking element 'xpath=//p[contains(text(),'مجلات، نقشه و نشانگر کتاب')]'.</msg>
+<msg timestamp="20220501 10:11:23.595" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-2.png"&gt;&lt;img src="selenium-screenshot-2.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg timestamp="20220501 10:11:23.596" level="FAIL">ElementClickInterceptedException: Message: element click intercepted: Element is not clickable at point (930, 1197)
+  (Session info: chrome=100.0.4896.127)
+Stacktrace:
+Backtrace:
+	Ordinal0 [0x00437413+2389011]
+	Ordinal0 [0x003C9F61+1941345]
+	Ordinal0 [0x002BC658+837208]
+	Ordinal0 [0x002EF8AF+1046703]
+	Ordinal0 [0x002ED8D6+1038550]
+	Ordinal0 [0x002EB5EB+1029611]
+	Ordinal0 [0x002EA359+1024857]
+	Ordinal0 [0x002DFF93+982931]
+	Ordinal0 [0x0030414C+1130828]
+	Ordinal0 [0x002DF974+981364]
+	Ordinal0 [0x00304364+1131364]
+	Ordinal0 [0x00314302+1196802]
+	Ordinal0 [0x00303F66+1130342]
+	Ordinal0 [0x002DE546+976198]
+	Ordinal0 [0x002DF456+980054]
+	GetHandleVerifier [0x005E9632+1727522]
+	GetHandleVerifier [0x0069BA4D+2457661]
+	GetHandleVerifier [0x004CEB81+569713]
+	GetHandleVerifier [0x004CDD76+566118]
+	Ordinal0 [0x003D0B2B+1968939]
+	Ordinal0 [0x003D5988+1989000]
+	Ordinal0 [0x003D5A75+1989237]
+	Ordinal0 [0x003DECB1+2026673]
+	BaseThreadInitThunk [0x768DFA29+25]
+	RtlGetAppContainerNamedObjectPath [0x77447A7E+286]
+	RtlGetAppContainerNamedObjectPath [0x77447A4E+238]
+</msg>
+<status status="FAIL" starttime="20220501 10:11:22.266" endtime="20220501 10:11:23.601"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath=//p[contains(text(),'مجلات، نقشه و نشانگر کتاب')]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220501 10:11:33.613" level="INFO">Clicking element 'xpath=//p[contains(text(),'مجلات، نقشه و نشانگر کتاب')]'.</msg>
+<status status="PASS" starttime="20220501 10:11:33.611" endtime="20220501 10:11:34.155"/>
+</kw>
+<status status="PASS" starttime="20220501 10:11:22.265" endtime="20220501 10:11:34.155"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>//div[contains(text(),'مجلات')]</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20220501 10:11:34.155" endtime="20220501 10:11:35.552"/>
+</kw>
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<arg>5x</arg>
+<arg>10s</arg>
+<arg>Click Element</arg>
+<arg>//div[contains(text(),'مجلات')]</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>//div[contains(text(),'مجلات')]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220501 10:11:35.553" level="INFO">Clicking element '//div[contains(text(),'مجلات')]'.</msg>
+<status status="PASS" starttime="20220501 10:11:35.553" endtime="20220501 10:11:36.344"/>
+</kw>
+<status status="PASS" starttime="20220501 10:11:35.552" endtime="20220501 10:11:36.344"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>//div[contains(text(),'${typeOfMagazine}')]</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20220501 10:11:36.344" endtime="20220501 10:11:37.014"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath=//div[contains(text(),'${typeOfMagazine}')]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220501 10:11:37.016" level="INFO">Clicking element 'xpath=//div[contains(text(),'مجلات داخلی')]'.</msg>
+<status status="PASS" starttime="20220501 10:11:37.015" endtime="20220501 10:11:37.940"/>
+</kw>
+<kw name="Run Keyword And Ignore Error" library="BuiltIn">
+<arg>Scroll Element Into View</arg>
+<arg>xpath=//div[contains(text(),'نوع جلد')]</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<kw name="Scroll Element Into View" library="SeleniumLibrary">
+<arg>xpath=//div[contains(text(),'نوع جلد')]</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<msg timestamp="20220501 10:11:39.145" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-3.png"&gt;&lt;img src="selenium-screenshot-3.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg timestamp="20220501 10:11:39.146" level="FAIL">MoveTargetOutOfBoundsException: Message: move target out of bounds
+  (Session info: chrome=100.0.4896.127)
+Stacktrace:
+Backtrace:
+	Ordinal0 [0x00437413+2389011]
+	Ordinal0 [0x003C9F61+1941345]
+	Ordinal0 [0x002BC520+836896]
+	Ordinal0 [0x0031C59A+1230234]
+	Ordinal0 [0x0030414C+1130828]
+	Ordinal0 [0x00314302+1196802]
+	Ordinal0 [0x00303F66+1130342]
+	Ordinal0 [0x002DE546+976198]
+	Ordinal0 [0x002DF456+980054]
+	GetHandleVerifier [0x005E9632+1727522]
+	GetHandleVerifier [0x0069BA4D+2457661]
+	GetHandleVerifier [0x004CEB81+569713]
+	GetHandleVerifier [0x004CDD76+566118]
+	Ordinal0 [0x003D0B2B+1968939]
+	Ordinal0 [0x003D5988+1989000]
+	Ordinal0 [0x003D5A75+1989237]
+	Ordinal0 [0x003DECB1+2026673]
+	BaseThreadInitThunk [0x768DFA29+25]
+	RtlGetAppContainerNamedObjectPath [0x77447A7E+286]
+	RtlGetAppContainerNamedObjectPath [0x77447A4E+238]
+</msg>
+<status status="FAIL" starttime="20220501 10:11:37.941" endtime="20220501 10:11:39.152"/>
+</kw>
+<status status="PASS" starttime="20220501 10:11:37.941" endtime="20220501 10:11:39.152"/>
+</kw>
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<arg>5x</arg>
+<arg>10s</arg>
+<arg>Click Element</arg>
+<arg>xpath=//div[contains(text(),'نوع جلد')]</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath=//div[contains(text(),'نوع جلد')]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220501 10:11:39.154" level="INFO">Clicking element 'xpath=//div[contains(text(),'نوع جلد')]'.</msg>
+<status status="PASS" starttime="20220501 10:11:39.153" endtime="20220501 10:11:39.689"/>
+</kw>
+<status status="PASS" starttime="20220501 10:11:39.153" endtime="20220501 10:11:39.689"/>
+</kw>
+<kw name="Run Keyword And Ignore Error" library="BuiltIn">
+<arg>Scroll Element Into View</arg>
+<arg>//div[contains(text(),'کاغذی')]</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<kw name="Scroll Element Into View" library="SeleniumLibrary">
+<arg>//div[contains(text(),'کاغذی')]</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<msg timestamp="20220501 10:11:40.089" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-4.png"&gt;&lt;img src="selenium-screenshot-4.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg timestamp="20220501 10:11:40.089" level="FAIL">MoveTargetOutOfBoundsException: Message: move target out of bounds
+  (Session info: chrome=100.0.4896.127)
+Stacktrace:
+Backtrace:
+	Ordinal0 [0x00437413+2389011]
+	Ordinal0 [0x003C9F61+1941345]
+	Ordinal0 [0x002BC520+836896]
+	Ordinal0 [0x0031C59A+1230234]
+	Ordinal0 [0x0030414C+1130828]
+	Ordinal0 [0x00314302+1196802]
+	Ordinal0 [0x00303F66+1130342]
+	Ordinal0 [0x002DE546+976198]
+	Ordinal0 [0x002DF456+980054]
+	GetHandleVerifier [0x005E9632+1727522]
+	GetHandleVerifier [0x0069BA4D+2457661]
+	GetHandleVerifier [0x004CEB81+569713]
+	GetHandleVerifier [0x004CDD76+566118]
+	Ordinal0 [0x003D0B2B+1968939]
+	Ordinal0 [0x003D5988+1989000]
+	Ordinal0 [0x003D5A75+1989237]
+	Ordinal0 [0x003DECB1+2026673]
+	BaseThreadInitThunk [0x768DFA29+25]
+	RtlGetAppContainerNamedObjectPath [0x77447A7E+286]
+	RtlGetAppContainerNamedObjectPath [0x77447A4E+238]
+</msg>
+<status status="FAIL" starttime="20220501 10:11:39.690" endtime="20220501 10:11:40.090"/>
+</kw>
+<status status="PASS" starttime="20220501 10:11:39.690" endtime="20220501 10:11:40.091"/>
+</kw>
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<arg>5x</arg>
+<arg>10s</arg>
+<arg>Click Element</arg>
+<arg>xpath=//div[contains(text(),'کاغذی')]</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath=//div[contains(text(),'کاغذی')]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220501 10:11:40.092" level="INFO">Clicking element 'xpath=//div[contains(text(),'کاغذی')]'.</msg>
+<msg timestamp="20220501 10:11:41.820" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-5.png"&gt;&lt;img src="selenium-screenshot-5.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg timestamp="20220501 10:11:41.821" level="FAIL">ElementClickInterceptedException: Message: element click intercepted: Element is not clickable at point (1263, 790)
+  (Session info: chrome=100.0.4896.127)
+Stacktrace:
+Backtrace:
+	Ordinal0 [0x00437413+2389011]
+	Ordinal0 [0x003C9F61+1941345]
+	Ordinal0 [0x002BC658+837208]
+	Ordinal0 [0x002EF8AF+1046703]
+	Ordinal0 [0x002ED8D6+1038550]
+	Ordinal0 [0x002EB5EB+1029611]
+	Ordinal0 [0x002EA359+1024857]
+	Ordinal0 [0x002DFF93+982931]
+	Ordinal0 [0x0030414C+1130828]
+	Ordinal0 [0x002DF974+981364]
+	Ordinal0 [0x00304364+1131364]
+	Ordinal0 [0x00314302+1196802]
+	Ordinal0 [0x00303F66+1130342]
+	Ordinal0 [0x002DE546+976198]
+	Ordinal0 [0x002DF456+980054]
+	GetHandleVerifier [0x005E9632+1727522]
+	GetHandleVerifier [0x0069BA4D+2457661]
+	GetHandleVerifier [0x004CEB81+569713]
+	GetHandleVerifier [0x004CDD76+566118]
+	Ordinal0 [0x003D0B2B+1968939]
+	Ordinal0 [0x003D5988+1989000]
+	Ordinal0 [0x003D5A75+1989237]
+	Ordinal0 [0x003DECB1+2026673]
+	BaseThreadInitThunk [0x768DFA29+25]
+	RtlGetAppContainerNamedObjectPath [0x77447A7E+286]
+	RtlGetAppContainerNamedObjectPath [0x77447A4E+238]
+</msg>
+<status status="FAIL" starttime="20220501 10:11:40.091" endtime="20220501 10:11:41.823"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath=//div[contains(text(),'کاغذی')]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220501 10:11:51.834" level="INFO">Clicking element 'xpath=//div[contains(text(),'کاغذی')]'.</msg>
+<status status="PASS" starttime="20220501 10:11:51.833" endtime="20220501 10:11:52.412"/>
+</kw>
+<status status="PASS" starttime="20220501 10:11:40.091" endtime="20220501 10:11:52.412"/>
+</kw>
+<status status="PASS" starttime="20220501 10:10:50.383" endtime="20220501 10:11:52.413"/>
+</kw>
+<kw name="Select Product" library="FindSpecialProduct">
+<arg>${window_code}</arg>
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<arg>3x</arg>
+<arg>10s</arg>
+<arg>Element Should Be Visible</arg>
+<arg>//body/div[@id='__next']/div[1]/div[3]/div[3]/div[1]/div[1]/section[1]/div[2]/div[1]/div[1]/div[1]/a[1]</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<kw name="Element Should Be Visible" library="SeleniumLibrary">
+<arg>//body/div[@id='__next']/div[1]/div[3]/div[3]/div[1]/div[1]/section[1]/div[2]/div[1]/div[1]/div[1]/a[1]</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<msg timestamp="20220501 10:11:53.843" level="INFO">Element '//body/div[@id='__next']/div[1]/div[3]/div[3]/div[1]/div[1]/section[1]/div[2]/div[1]/div[1]/div[1]/a[1]' is displayed.</msg>
+<status status="PASS" starttime="20220501 10:11:52.417" endtime="20220501 10:11:53.843"/>
+</kw>
+<status status="PASS" starttime="20220501 10:11:52.416" endtime="20220501 10:11:53.844"/>
+</kw>
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<arg>3x</arg>
+<arg>10s</arg>
+<arg>Click Element</arg>
+<arg>//body/div[@id='__next']/div[1]/div[3]/div[3]/div[1]/div[1]/section[1]/div[2]/div[1]/div[1]/div[1]/a[1]</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>//body/div[@id='__next']/div[1]/div[3]/div[3]/div[1]/div[1]/section[1]/div[2]/div[1]/div[1]/div[1]/a[1]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220501 10:11:53.846" level="INFO">Clicking element '//body/div[@id='__next']/div[1]/div[3]/div[3]/div[1]/div[1]/section[1]/div[2]/div[1]/div[1]/div[1]/a[1]'.</msg>
+<status status="PASS" starttime="20220501 10:11:53.845" endtime="20220501 10:11:55.163"/>
+</kw>
+<status status="PASS" starttime="20220501 10:11:53.844" endtime="20220501 10:11:55.163"/>
+</kw>
+<kw name="Get Window Handles" library="SeleniumLibrary">
+<var>@{WindowHandles}</var>
+<doc>Returns all child window handles of the selected browser as a list.</doc>
+<msg timestamp="20220501 10:11:55.184" level="INFO">@{WindowHandles} = [ CDwindow-D327C4D91FB39CA53E2BCDC6A9C60DC2 | CDwindow-DCCC1BC1BD9A71CE5D0D9D77A196EDF2 ]</msg>
+<status status="PASS" starttime="20220501 10:11:55.163" endtime="20220501 10:11:55.184"/>
+</kw>
+<kw name="Switch Window" library="SeleniumLibrary">
+<arg>${WindowHandles}[${window_code}]</arg>
+<doc>Switches to browser window matching ``locator``.</doc>
+<status status="PASS" starttime="20220501 10:11:55.184" endtime="20220501 10:11:55.472"/>
+</kw>
+<status status="PASS" starttime="20220501 10:11:52.414" endtime="20220501 10:11:55.472"/>
+</kw>
+<kw name="Verify Product" library="FindSpecialProduct">
+<arg>${verifie_word}</arg>
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<arg>3x</arg>
+<arg>10s</arg>
+<arg>Element Should Be Visible</arg>
+<arg>${verifie_word}</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<kw name="Element Should Be Visible" library="SeleniumLibrary">
+<arg>${verifie_word}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<msg timestamp="20220501 10:12:37.776" level="INFO">Element '//p[text()='کاغذی']' is displayed.</msg>
+<status status="PASS" starttime="20220501 10:11:55.475" endtime="20220501 10:12:37.776"/>
+</kw>
+<status status="PASS" starttime="20220501 10:11:55.474" endtime="20220501 10:12:37.776"/>
+</kw>
+<kw name="Page Should Contain Element" library="SeleniumLibrary">
+<arg>${verifie_word}</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<msg timestamp="20220501 10:12:37.809" level="INFO">Current page contains element '//p[text()='کاغذی']'.</msg>
+<status status="PASS" starttime="20220501 10:12:37.777" endtime="20220501 10:12:37.810"/>
+</kw>
+<status status="PASS" starttime="20220501 10:11:55.473" endtime="20220501 10:12:37.810"/>
+</kw>
+<status status="PASS" starttime="20220501 10:10:49.516" endtime="20220501 10:12:37.810"/>
+</kw>
+<tag>DataDriven</tag>
+<status status="PASS" starttime="20220501 10:10:49.506" endtime="20220501 10:12:37.815"/>
+</test>
+<test id="s1-t2" name="Find Product In English Magazine" line="20">
+<kw name="Data Driven">
+<arg>مجلات خارجی</arg>
+<arg>${EnglishWindowCode}</arg>
+<arg>${verifie_word}</arg>
+<kw name="Open Category Menu" library="FindSpecialProduct">
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>//*[@id="base_layout_desktop_fixed_header"]/header/nav/div[1]/div[1]/div[1]/div/span</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20220501 10:12:37.822" endtime="20220501 10:12:37.870"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath=//*[@id="base_layout_desktop_fixed_header"]/header/nav/div[1]/div[1]/div[1]/div/span</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220501 10:12:37.871" level="INFO">Clicking element 'xpath=//*[@id="base_layout_desktop_fixed_header"]/header/nav/div[1]/div[1]/div[1]/div/span'.</msg>
+<status status="PASS" starttime="20220501 10:12:37.871" endtime="20220501 10:12:38.289"/>
+</kw>
+<status status="PASS" starttime="20220501 10:12:37.822" endtime="20220501 10:12:38.289"/>
+</kw>
+<kw name="Select Category" library="FindSpecialProduct">
+<arg>${type_of_magazine}</arg>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>//header/nav[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[8]/a[1]/p[1]</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20220501 10:12:38.291" endtime="20220501 10:12:38.727"/>
+</kw>
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<arg>3x</arg>
+<arg>10s</arg>
+<arg>Click Element</arg>
+<arg>xpath=//header/nav[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[8]/a[1]/p[1]</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath=//header/nav[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[8]/a[1]/p[1]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220501 10:12:38.729" level="INFO">Clicking element 'xpath=//header/nav[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[8]/a[1]/p[1]'.</msg>
+<status status="PASS" starttime="20220501 10:12:38.729" endtime="20220501 10:12:39.394"/>
+</kw>
+<status status="PASS" starttime="20220501 10:12:38.728" endtime="20220501 10:12:39.394"/>
+</kw>
+<kw name="Set Selenium Implicit Wait" library="SeleniumLibrary">
+<arg>30s</arg>
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<status status="PASS" starttime="20220501 10:12:39.395" endtime="20220501 10:12:39.405"/>
+</kw>
+<kw name="Run Keyword And Ignore Error" library="BuiltIn">
+<arg>scroll element into view</arg>
+<arg>//*[@id="__next"]/div[1]/div[3]/div[3]/div[1]/div[2]/div[2]/span[7]/a/p</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<kw name="Scroll Element Into View" library="SeleniumLibrary">
+<arg>//*[@id="__next"]/div[1]/div[3]/div[3]/div[1]/div[2]/div[2]/span[7]/a/p</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<msg timestamp="20220501 10:13:10.049" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-6.png"&gt;&lt;img src="selenium-screenshot-6.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg timestamp="20220501 10:13:10.050" level="FAIL">Element with locator '//*[@id="__next"]/div[1]/div[3]/div[3]/div[1]/div[2]/div[2]/span[7]/a/p' not found.</msg>
+<status status="FAIL" starttime="20220501 10:12:39.405" endtime="20220501 10:13:10.051"/>
+</kw>
+<status status="PASS" starttime="20220501 10:12:39.405" endtime="20220501 10:13:10.051"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>//p[contains(text(),'مجلات، نقشه و نشانگر کتاب')]</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20220501 10:13:10.051" endtime="20220501 10:13:10.070"/>
+</kw>
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<arg>5x</arg>
+<arg>10s</arg>
+<arg>Click Element</arg>
+<arg>xpath=//p[contains(text(),'مجلات، نقشه و نشانگر کتاب')]</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath=//p[contains(text(),'مجلات، نقشه و نشانگر کتاب')]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220501 10:13:10.071" level="INFO">Clicking element 'xpath=//p[contains(text(),'مجلات، نقشه و نشانگر کتاب')]'.</msg>
+<msg timestamp="20220501 10:13:11.464" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-7.png"&gt;&lt;img src="selenium-screenshot-7.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg timestamp="20220501 10:13:11.464" level="FAIL">ElementClickInterceptedException: Message: element click intercepted: Element is not clickable at point (930, 1213)
+  (Session info: chrome=100.0.4896.127)
+Stacktrace:
+Backtrace:
+	Ordinal0 [0x00437413+2389011]
+	Ordinal0 [0x003C9F61+1941345]
+	Ordinal0 [0x002BC658+837208]
+	Ordinal0 [0x002EF8AF+1046703]
+	Ordinal0 [0x002ED8D6+1038550]
+	Ordinal0 [0x002EB5EB+1029611]
+	Ordinal0 [0x002EA359+1024857]
+	Ordinal0 [0x002DFF93+982931]
+	Ordinal0 [0x0030414C+1130828]
+	Ordinal0 [0x002DF974+981364]
+	Ordinal0 [0x00304364+1131364]
+	Ordinal0 [0x00314302+1196802]
+	Ordinal0 [0x00303F66+1130342]
+	Ordinal0 [0x002DE546+976198]
+	Ordinal0 [0x002DF456+980054]
+	GetHandleVerifier [0x005E9632+1727522]
+	GetHandleVerifier [0x0069BA4D+2457661]
+	GetHandleVerifier [0x004CEB81+569713]
+	GetHandleVerifier [0x004CDD76+566118]
+	Ordinal0 [0x003D0B2B+1968939]
+	Ordinal0 [0x003D5988+1989000]
+	Ordinal0 [0x003D5A75+1989237]
+	Ordinal0 [0x003DECB1+2026673]
+	BaseThreadInitThunk [0x768DFA29+25]
+	RtlGetAppContainerNamedObjectPath [0x77447A7E+286]
+	RtlGetAppContainerNamedObjectPath [0x77447A4E+238]
+</msg>
+<status status="FAIL" starttime="20220501 10:13:10.070" endtime="20220501 10:13:11.465"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath=//p[contains(text(),'مجلات، نقشه و نشانگر کتاب')]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220501 10:13:21.475" level="INFO">Clicking element 'xpath=//p[contains(text(),'مجلات، نقشه و نشانگر کتاب')]'.</msg>
+<status status="PASS" starttime="20220501 10:13:21.473" endtime="20220501 10:13:22.015"/>
+</kw>
+<status status="PASS" starttime="20220501 10:13:10.070" endtime="20220501 10:13:22.015"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>//div[contains(text(),'مجلات')]</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20220501 10:13:22.015" endtime="20220501 10:13:22.725"/>
+</kw>
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<arg>5x</arg>
+<arg>10s</arg>
+<arg>Click Element</arg>
+<arg>//div[contains(text(),'مجلات')]</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>//div[contains(text(),'مجلات')]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220501 10:13:22.727" level="INFO">Clicking element '//div[contains(text(),'مجلات')]'.</msg>
+<status status="PASS" starttime="20220501 10:13:22.726" endtime="20220501 10:13:23.472"/>
+</kw>
+<status status="PASS" starttime="20220501 10:13:22.726" endtime="20220501 10:13:23.473"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>//div[contains(text(),'${typeOfMagazine}')]</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20220501 10:13:23.474" endtime="20220501 10:13:23.913"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath=//div[contains(text(),'${typeOfMagazine}')]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220501 10:13:23.915" level="INFO">Clicking element 'xpath=//div[contains(text(),'مجلات خارجی')]'.</msg>
+<status status="PASS" starttime="20220501 10:13:23.913" endtime="20220501 10:13:24.570"/>
+</kw>
+<kw name="Run Keyword And Ignore Error" library="BuiltIn">
+<arg>Scroll Element Into View</arg>
+<arg>xpath=//div[contains(text(),'نوع جلد')]</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<kw name="Scroll Element Into View" library="SeleniumLibrary">
+<arg>xpath=//div[contains(text(),'نوع جلد')]</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<msg timestamp="20220501 10:13:25.667" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-8.png"&gt;&lt;img src="selenium-screenshot-8.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg timestamp="20220501 10:13:25.668" level="FAIL">MoveTargetOutOfBoundsException: Message: move target out of bounds
+  (Session info: chrome=100.0.4896.127)
+Stacktrace:
+Backtrace:
+	Ordinal0 [0x00437413+2389011]
+	Ordinal0 [0x003C9F61+1941345]
+	Ordinal0 [0x002BC520+836896]
+	Ordinal0 [0x0031C59A+1230234]
+	Ordinal0 [0x0030414C+1130828]
+	Ordinal0 [0x00314302+1196802]
+	Ordinal0 [0x00303F66+1130342]
+	Ordinal0 [0x002DE546+976198]
+	Ordinal0 [0x002DF456+980054]
+	GetHandleVerifier [0x005E9632+1727522]
+	GetHandleVerifier [0x0069BA4D+2457661]
+	GetHandleVerifier [0x004CEB81+569713]
+	GetHandleVerifier [0x004CDD76+566118]
+	Ordinal0 [0x003D0B2B+1968939]
+	Ordinal0 [0x003D5988+1989000]
+	Ordinal0 [0x003D5A75+1989237]
+	Ordinal0 [0x003DECB1+2026673]
+	BaseThreadInitThunk [0x768DFA29+25]
+	RtlGetAppContainerNamedObjectPath [0x77447A7E+286]
+	RtlGetAppContainerNamedObjectPath [0x77447A4E+238]
+</msg>
+<status status="FAIL" starttime="20220501 10:13:24.571" endtime="20220501 10:13:25.670"/>
+</kw>
+<status status="PASS" starttime="20220501 10:13:24.570" endtime="20220501 10:13:25.670"/>
+</kw>
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<arg>5x</arg>
+<arg>10s</arg>
+<arg>Click Element</arg>
+<arg>xpath=//div[contains(text(),'نوع جلد')]</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath=//div[contains(text(),'نوع جلد')]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220501 10:13:25.671" level="INFO">Clicking element 'xpath=//div[contains(text(),'نوع جلد')]'.</msg>
+<status status="PASS" starttime="20220501 10:13:25.671" endtime="20220501 10:13:26.168"/>
+</kw>
+<status status="PASS" starttime="20220501 10:13:25.670" endtime="20220501 10:13:26.168"/>
+</kw>
+<kw name="Run Keyword And Ignore Error" library="BuiltIn">
+<arg>Scroll Element Into View</arg>
+<arg>//div[contains(text(),'کاغذی')]</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<kw name="Scroll Element Into View" library="SeleniumLibrary">
+<arg>//div[contains(text(),'کاغذی')]</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" starttime="20220501 10:13:26.169" endtime="20220501 10:13:26.529"/>
+</kw>
+<status status="PASS" starttime="20220501 10:13:26.168" endtime="20220501 10:13:26.529"/>
+</kw>
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<arg>5x</arg>
+<arg>10s</arg>
+<arg>Click Element</arg>
+<arg>xpath=//div[contains(text(),'کاغذی')]</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath=//div[contains(text(),'کاغذی')]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220501 10:13:26.531" level="INFO">Clicking element 'xpath=//div[contains(text(),'کاغذی')]'.</msg>
+<status status="PASS" starttime="20220501 10:13:26.530" endtime="20220501 10:13:27.028"/>
+</kw>
+<status status="PASS" starttime="20220501 10:13:26.530" endtime="20220501 10:13:27.028"/>
+</kw>
+<status status="PASS" starttime="20220501 10:12:38.290" endtime="20220501 10:13:27.028"/>
+</kw>
+<kw name="Select Product" library="FindSpecialProduct">
+<arg>${window_code}</arg>
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<arg>3x</arg>
+<arg>10s</arg>
+<arg>Element Should Be Visible</arg>
+<arg>//body/div[@id='__next']/div[1]/div[3]/div[3]/div[1]/div[1]/section[1]/div[2]/div[1]/div[1]/div[1]/a[1]</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<kw name="Element Should Be Visible" library="SeleniumLibrary">
+<arg>//body/div[@id='__next']/div[1]/div[3]/div[3]/div[1]/div[1]/section[1]/div[2]/div[1]/div[1]/div[1]/a[1]</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<msg timestamp="20220501 10:13:27.769" level="INFO">Element '//body/div[@id='__next']/div[1]/div[3]/div[3]/div[1]/div[1]/section[1]/div[2]/div[1]/div[1]/div[1]/a[1]' is displayed.</msg>
+<status status="PASS" starttime="20220501 10:13:27.031" endtime="20220501 10:13:27.769"/>
+</kw>
+<status status="PASS" starttime="20220501 10:13:27.030" endtime="20220501 10:13:27.769"/>
+</kw>
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<arg>3x</arg>
+<arg>10s</arg>
+<arg>Click Element</arg>
+<arg>//body/div[@id='__next']/div[1]/div[3]/div[3]/div[1]/div[1]/section[1]/div[2]/div[1]/div[1]/div[1]/a[1]</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>//body/div[@id='__next']/div[1]/div[3]/div[3]/div[1]/div[1]/section[1]/div[2]/div[1]/div[1]/div[1]/a[1]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220501 10:13:27.771" level="INFO">Clicking element '//body/div[@id='__next']/div[1]/div[3]/div[3]/div[1]/div[1]/section[1]/div[2]/div[1]/div[1]/div[1]/a[1]'.</msg>
+<status status="PASS" starttime="20220501 10:13:27.770" endtime="20220501 10:13:28.057"/>
+</kw>
+<status status="PASS" starttime="20220501 10:13:27.769" endtime="20220501 10:13:28.057"/>
+</kw>
+<kw name="Get Window Handles" library="SeleniumLibrary">
+<var>@{WindowHandles}</var>
+<doc>Returns all child window handles of the selected browser as a list.</doc>
+<msg timestamp="20220501 10:13:28.089" level="INFO">@{WindowHandles} = [ CDwindow-D327C4D91FB39CA53E2BCDC6A9C60DC2 | CDwindow-DCCC1BC1BD9A71CE5D0D9D77A196EDF2 | CDwindow-D5225D4D91E16E800FD6C430A5F5B163 ]</msg>
+<status status="PASS" starttime="20220501 10:13:28.057" endtime="20220501 10:13:28.089"/>
+</kw>
+<kw name="Switch Window" library="SeleniumLibrary">
+<arg>${WindowHandles}[${window_code}]</arg>
+<doc>Switches to browser window matching ``locator``.</doc>
+<status status="PASS" starttime="20220501 10:13:28.089" endtime="20220501 10:13:28.751"/>
+</kw>
+<status status="PASS" starttime="20220501 10:13:27.029" endtime="20220501 10:13:28.752"/>
+</kw>
+<kw name="Verify Product" library="FindSpecialProduct">
+<arg>${verifie_word}</arg>
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<arg>3x</arg>
+<arg>10s</arg>
+<arg>Element Should Be Visible</arg>
+<arg>${verifie_word}</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<kw name="Element Should Be Visible" library="SeleniumLibrary">
+<arg>${verifie_word}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<msg timestamp="20220501 10:14:10.146" level="INFO">Element '//p[text()='کاغذی']' is displayed.</msg>
+<status status="PASS" starttime="20220501 10:13:28.755" endtime="20220501 10:14:10.146"/>
+</kw>
+<status status="PASS" starttime="20220501 10:13:28.753" endtime="20220501 10:14:10.147"/>
+</kw>
+<kw name="Page Should Contain Element" library="SeleniumLibrary">
+<arg>${verifie_word}</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<msg timestamp="20220501 10:14:10.160" level="INFO">Current page contains element '//p[text()='کاغذی']'.</msg>
+<status status="PASS" starttime="20220501 10:14:10.147" endtime="20220501 10:14:10.161"/>
+</kw>
+<status status="PASS" starttime="20220501 10:13:28.752" endtime="20220501 10:14:10.161"/>
+</kw>
+<status status="PASS" starttime="20220501 10:12:37.820" endtime="20220501 10:14:10.162"/>
+</kw>
+<tag>DataDriven</tag>
+<status status="PASS" starttime="20220501 10:12:37.818" endtime="20220501 10:14:10.162"/>
+</test>
+<kw name="Finish TestCase" library="CommonFunctionality" type="TEARDOWN">
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20220501 10:14:10.167" endtime="20220501 10:14:12.885"/>
+</kw>
+<status status="PASS" starttime="20220501 10:14:10.166" endtime="20220501 10:14:12.886"/>
+</kw>
+<doc>this is a test to find special Products</doc>
+<status status="PASS" starttime="20220501 10:10:02.097" endtime="20220501 10:14:12.886"/>
+</suite>
+<statistics>
+<total>
+<stat pass="2" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="2" fail="0" skip="0">DataDriven</stat>
+</tag>
+<suite>
+<stat pass="2" fail="0" skip="0" id="s1" name="DataDriven">DataDriven</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

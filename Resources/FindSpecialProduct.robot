@@ -39,11 +39,18 @@ Select Category
 
 
 Select Product
+    [Arguments]    ${window_code}
     Wait Until Keyword Succeeds    3x   10s     Element Should Be Visible    //body/div[@id='__next']/div[1]/div[3]/div[3]/div[1]/div[1]/section[1]/div[2]/div[1]/div[1]/div[1]/a[1]
     Wait Until Keyword Succeeds    3x   10s    Click Element    //body/div[@id='__next']/div[1]/div[3]/div[3]/div[1]/div[1]/section[1]/div[2]/div[1]/div[1]/div[1]/a[1]
 
+#    IF    ${window_code} == 1
+#    ${var} = set Variable 1
+#    ELSE    ${window_code} == 2
+#    ${var} = set Variable 2
+#    END
+
     @{WindowHandles}=    Get Window Handles
-    Switch Window    ${WindowHandles}[1]
+    Switch Window    ${WindowHandles}[${window_code}]
 
 
 Verify Product

@@ -16,26 +16,21 @@ Open Category Menu
 Select Category
     Wait Until Page Contains Element    //span[contains(text(),'اپل')]
     Wait Until Keyword Succeeds    5x   10s    Click Element    //span[contains(text(),'اپل')]
+    Set Selenium Implicit Wait    20s
 
-Select Seller
-    Wait Until Page Contains Element    //*[@id="plpLayoutContainer"]/section[2]/div[2]/div/div[1]/div[10]/div/div[2]/div/div/div[1]
-    Run Keyword And Ignore Error    Scroll Element Into View    xpath://*[@id="plpLayoutContainer"]/section[2]/div[2]/div/div[1]/div[10]/div/div[2]/div/div/div[1]
-    Wait Until Keyword Succeeds    5x   10s    Click Element    //div[contains(text(),'نوع فروشنده')]
-    Wait Until Page Contains Element    //body/div[@id='__next']/div[1]/div[3]/div[3]/div[1]/div[1]/section[2]/div[2]/div[1]/div[1]/div[8]/div[2]/div[2]/div[1]/div[1]/label[1]/span[1]
-    Wait Until Keyword Succeeds    5x   10s    Click Element    //body/div[@id='__next']/div[1]/div[3]/div[3]/div[1]/div[1]/section[2]/div[2]/div[1]/div[1]/div[8]/div[2]/div[2]/div[1]/div[1]/label[1]/span[1]
-
-Select Filter
-    Wait Until Page Contains Element    //div[contains(text(),'پرفروش‌ترین‌')]
-    Wait Until Keyword Succeeds    5x   10s    Click Element    //div[contains(text(),'پرفروش‌ترین‌')]
-
+//TODO  click on seconed page and go
 Go To Second Page
-
-
+    Repeat Keyword 	15 times 	Run Keyword And Ignore Error    Scroll Element Into View    //body/div[@id='__next']/div[1]/div[3]/div[3]/div[1]/article[1]/div[1]
 
 Select Product
-    Run Keyword And Ignore Error    Scroll Element Into View    xpath://body/div[@id='__next']/div[1]/div[3]/div[3]/div[1]/div[1]/section[1]/div[2]/div[1]/div[1]/div[5]/a[1]
-    Wait Until Page Contains Element    //body/div[@id='__next']/div[1]/div[3]/div[3]/div[1]/div[1]/section[1]/div[2]/div[1]/div[1]/div[5]/a[1]
-    Wait Until Keyword Succeeds    3x   10s    Click Element    //body/div[@id='__next']/div[1]/div[3]/div[3]/div[1]/div[1]/section[1]/div[2]/div[1]/div[1]/div[5]/a[1]
+#    Wait Until Element Is Visible    //body/div[@id='__next']/div[1]/div[3]/div[3]/div[1]/div[1]/section[1]/div[2]/div[2]/div[3]/div[1]/*[1]
+##    Wait Until Keyword Succeeds    3x   10s    Click Element    //body/div[@id='__next']/div[1]/div[3]/div[3]/div[1]/div[1]/section[1]/div[2]/div[1]/div[1]/div[5]/a[1]
+##    Page Should Contain Element    //body/div[@id='__next']/div[1]/div[3]/div[3]/div[1]/div[1]/section[1]/div[2]/div[2]/div[2]/span[4]
+    Wait Until Element Is Visible    //span[contains(text(),'بعدی')]
+    Wait Until Element Is Enabled    //span[contains(text(),'بعدی')]
+    Sleep    5s
+    Click Element    //span[contains(text(),'بعدی')]
+
 
 Go To Product Page
     @{WindowHandles}=    Get Window Handles
@@ -60,19 +55,5 @@ Delete Product
 
 
 Verify Add Product
-    Wait Until Keyword Succeeds    5x   10s    Wait Until Page Contains Element    //p[contains(text(),'سبد خرید شما')]
-    Wait Until Page Contains Element    //div[contains(text(),'ادامه')]
-    Click Element    //div[contains(text(),'ادامه')]
-
-#    /TODO must check again
-#    Wait Until Element Is Visible    partial text=انتخاب زمان ارسال
-#    Page Should Contains Element    partial text=انتخاب زمان ارسال
-
-
-
-    Wait Until Page Contains Element    //span[contains(text(),'انتخاب زمان ارسال')]
-    Wait Until Keyword Succeeds    2x   10s    Page Should Contain Element    //span[contains(text(),'انتخاب زمان ارسال')]
-
-
 
 

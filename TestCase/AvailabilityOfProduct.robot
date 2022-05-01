@@ -1,8 +1,7 @@
 *** settings ***
-Documentation    this is a test for buying a special product
+Documentation    This is a test to check the capabilities of a product
 Resource    ../Resources/CommonFunctionality.robot
-Resource    ../Resources/LogInToSystem.robot
-Resource    ../Resources/Buy.robot
+Resource    ../Resources/CheckAvailabilityOfProduct.robot
 Resource    ../Resources/Variables.robot
 
 
@@ -14,12 +13,12 @@ Test Setup    CommonFunctionality.Start TestCase
 
 
 *** test cases ***
-Buy Iphone
-    Buy.Open Category Menu
-    Buy.Select Category
-    Buy.Select Filter
-    Buy.Select Product
-    Buy.Verify Add Product To
+Buy Product
+    Open Category Menu
+    Select Category
+    Go To Second Page
+    Select Product
+#    Verify Add Product To
 
 *** keywords ***
 Valid LogIn
