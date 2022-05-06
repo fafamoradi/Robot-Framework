@@ -5,13 +5,11 @@ Resource    ../Resources/CheckAvailabilityOfProduct.robot
 Resource    ../Resources/LogInToDigikala.robot
 Resource    ../Resources/Variables.robot
 
+Force Tags    LogIn.LogIn
 
-
-#Force Tags    LogIn.LogIn
 Suite Setup    Valid LogIn
+Test Teardown    CommonFunctionality.Finish TestCase
 
-#Test Setup    CommonFunctionality.Start TestCase
-#Test Teardown    CommonFunctionality.Finish TestCase
 
 
 *** test cases ***
