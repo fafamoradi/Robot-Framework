@@ -25,11 +25,11 @@ Find Product In English Magazine    مجلات خارجی        ${EnglishWindow
 *** keywords ***
 Data Driven
     [Arguments]    ${type_of_magazine}    ${window_code}    ${verifie_word}
-#    Set Selenium Implicit Wait    20s
-    FindSpecialProduct.Open Category Menu
-    FindSpecialProduct.Select Category    ${type_of_magazine}
-    FindSpecialProduct.Select Product    ${window_code}
-    FindSpecialProduct.Verify Product    ${verifie_word}
+    Open Category Menu
+    Select Category    ${type_of_magazine}
+    Select Product
+    Go To Product Page    ${window_code}
+    Verify Product    ${verifie_word}
 
 
 

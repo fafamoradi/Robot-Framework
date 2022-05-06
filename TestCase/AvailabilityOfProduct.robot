@@ -2,13 +2,15 @@
 Documentation    This is a test to check the capabilities of a product
 Resource    ../Resources/CommonFunctionality.robot
 Resource    ../Resources/CheckAvailabilityOfProduct.robot
+Resource    ../Resources/LogInToDigikala.robot
 Resource    ../Resources/Variables.robot
 
 
 
 #Force Tags    LogIn.LogIn
+Suite Setup    Valid LogIn
 
-Test Setup    CommonFunctionality.Start TestCase
+#Test Setup    CommonFunctionality.Start TestCase
 #Test Teardown    CommonFunctionality.Finish TestCase
 
 
@@ -16,14 +18,7 @@ Test Setup    CommonFunctionality.Start TestCase
 Buy Product
     Open Category Menu
     Select Category
-    Go To Second Page
+#    Go To Second Page
     Select Product
-#    Verify Add Product To
+    Go To Product Page
 
-*** keywords ***
-Valid LogIn
-    Open Digikala Site
-    Go TO LogIn Page
-    Input Username
-    Input Password
-    Verify Log In
