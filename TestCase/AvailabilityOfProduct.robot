@@ -6,7 +6,7 @@ Resource    ../Resources/LogInToDigikala.robot
 Resource    ../Resources/Variables.robot
 
 Force Tags    LogIn.LogIn
-
+#Suite Setup    CommonFunctionality.Start TestCase
 Suite Setup    Valid LogIn
 Test Teardown    CommonFunctionality.Finish TestCase
 
@@ -16,7 +16,7 @@ Test Teardown    CommonFunctionality.Finish TestCase
 Buy Product
     Open Category Menu
     Select Category
-#    Go To Second Page
+    Go To Second Page
     Select Product
     Go To Product Page
 

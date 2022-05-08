@@ -5,15 +5,15 @@ Resource    ../Resources/CommonFunctionality.robot
 
 
 *** variables ***
-${nextButton}    xpath=//body/div[@id='__next']/div[1]/div[3]/div[3]/div[1]/div[1]/section[1]/div[2]/div[2]/div[3]/div[1]/*[1]
+${nextButton}    //span[contains(text(),'بعدی')]
 ${categoryMenu}    //*[@id="base_layout_desktop_fixed_header"]/header/nav/div[1]/div[1]/div[1]/div/span
 ${appleCategory}    //span[contains(text(),'اپل')]
 ${article}    //body/div[@id='__next']/div[1]/div[3]/div[3]/div[1]/article[1]/div[2]
 ${informButton}    //body/div[@id='__next']/div[1]/div[3]/div[3]/div[2]/div[2]/div[2]/div[2]/div[3]/div[1]/div[1]/div[2]/button[1]
 ${setFilter}    //p[contains(text(),'سیستم پیام شخصی دیجی‌کالا')]
-${submit}    //body/div[@id='__next']/div[@id='modal-root']/div[18]/div[1]/div[1]/div[1]/div[2]/div[1]/form[1]/div[1]/button[1]
+${submit}    (//div[text()='ثبت'])[2]
 ${verifyItem}    //body/div[@id='__next']/div[1]/div[3]/div[3]/div[2]/div[2]/div[2]/div[2]/div[3]/div[1]/div[1]/div[2]/button[1]
-
+${productProperty}    (//span[text()='ناموجود'])
 
 
 *** keywords ***
@@ -35,14 +35,13 @@ Select Category
 Go To Second Page
     Wait Until Element Is Visible    ${nextButton}
     Wait Until Element Is Enabled    ${nextButton}
-    Wait Until Page Contains Element    ${nextButton}
-    Sleep    1s
-    Wait Until Keyword Succeeds      2x     10s      Click Element    ${nextButton}
+    ${ele}    Get WebElement    ${nextButton}
+    Execute Javascript    arguments[0].click();     ARGUMENTS    ${ele}
 
 
 Select Product
-    Click Element    //body/div[@id='__next']/div[1]/div[3]/div[3]/div[1]/div[1]/section[1]/div[2]/div[1]/div[1]/div[80]/a[1]
-
+    ${element}    Get WebElement    ${productProperty}
+    Execute Javascript    arguments[0].click();     ARGUMENTS    ${element}
 
 
 Go To Product Page
@@ -52,10 +51,12 @@ Go To Product Page
     Click Element    ${informButton}
 
     Wait Until Page Contains Element    ${setFilter}
+    Wait Until Element Is Enabled    ${setFilter}
     Click Element    ${setFilter}
 
-    Wait Until Page Contains Element    ${submit}
-    Click Element    ${submit}
+    ${sub}    Get WebElement    ${submit}
+    Execute Javascript    arguments[0].click();     ARGUMENTS    ${sub}
+
 
     Wait Until Page Contains Element    ${verifyItem}
     Page Should Contain Element    ${verifyItem}
